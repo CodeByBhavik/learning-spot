@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Exam Cheat Sheet — ML, Forms of ML, Over/Underfitting</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <p class="eyebrow">Reference &middot; Artificial Intelligence &middot; 30-minute written test</p>
+    <h1>Machine Learning: the three examinable topics</h1>
+    <p class="standfirst">Everything needed for Q1&ndash;Q3, compressed. Read this only to
+    check yourself after writing from memory &mdash; never instead of writing.</p>
+  </header>
+
+  <!-- ==================== TOPIC 1 ==================== -->
+  <h2>Topic 1 &mdash; What is Machine Learning?</h2>
+
+  <div class="key">
+    <strong>Definition.</strong> Machine Learning is a process where a computer learns
+    by observing the patterns in data, rather than following hard-coded rules written
+    by a programmer. &mdash; coined by <strong>Arthur Samuel, 1959</strong>.
+  </div>
+
+  <h3>The core flip</h3>
+  <table>
+    <thead><tr><th>Traditional programming</th><th>Machine learning</th></tr></thead>
+    <tbody>
+      <tr><td>Rules are <strong>written by the programmer</strong></td><td>Rules are <strong>learned from data</strong></td></tr>
+      <tr><td>Data + Rules &rarr; Answers</td><td>Data + Answers &rarr; Rules (the <em>model</em>)</td></tr>
+      <tr><td>Fails when rules are too complex to write</td><td>Handles problems no human can write rules for</td></tr>
+      <tr><td>Performance fixed unless code is edited</td><td>Performance improves as more data arrives</td></tr>
+      <tr><td>e.g. GST calculation, &deg;C &rarr; &deg;F</td><td>e.g. spam detection, face recognition</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Characteristics &mdash; pick 4</h3>
+  <ol class="points">
+    <li>Learns <strong>from data</strong>, not from hand-written rules.</li>
+    <li>Performance <strong>improves with experience</strong> &mdash; more data, better results.</li>
+    <li><strong>Identifies patterns</strong> in data automatically.</li>
+    <li><strong>Predicts</strong> outcomes for new, unseen data.</li>
+  </ol>
+
+  <h3>Applications &mdash; pick 5, one per domain</h3>
+  <ul class="plain">
+    <li><strong>Recommendation systems</strong> &mdash; Netflix, Spotify, YouTube</li>
+    <li><strong>Spam detection</strong> &mdash; email filtering</li>
+    <li><strong>Medical diagnosis</strong> &mdash; detecting disease from X-rays and scans</li>
+    <li><strong>Fraud detection</strong> &mdash; banks flagging suspicious transactions</li>
+    <li><strong>Face &amp; image recognition</strong> &mdash; phone unlock, security</li>
+    <li><strong>Speech recognition</strong> &mdash; Alexa, Siri, Google Assistant</li>
+    <li><strong>Self-driving cars</strong> &mdash; reading the road</li>
+  </ul>
+
+  <div class="trap">
+    <span class="tag">Marks lost here</span>
+    Netflix and Spotify are <strong>one</strong> application (recommendation systems),
+    not two. Spread your five across <strong>different domains</strong>. Never write
+    &ldquo;etc.&rdquo; &mdash; examiners cannot award marks for it.
+  </div>
+
+  <!-- ==================== TOPIC 2 ==================== -->
+  <h2>Topic 2 &mdash; The three forms of Machine Learning</h2>
+
+  <div class="key">
+    <strong>The organising question:</strong> what kind of <em>feedback</em> does the
+    machine receive while it is learning?
+  </div>
+
+  <table>
+    <thead><tr><th>Type</th><th>Feedback received</th><th>Data</th><th>Goal</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Supervised</strong></td><td>The correct answer is given</td><td>Labelled</td><td>Predict the output</td></tr>
+      <tr><td><strong>Unsupervised</strong></td><td>No feedback at all</td><td>Unlabelled</td><td>Discover hidden structure</td></tr>
+      <tr><td><strong>Reinforcement</strong></td><td>Reward or penalty after acting</td><td>An environment, no fixed dataset</td><td>Maximise total reward</td></tr>
+    </tbody>
+  </table>
+
+  <p><em>Why three exist:</em> three different real situations. &#9312; The past already
+  contains the answers &rarr; supervised. &#9313; There are no answers, you just want to
+  understand the data &rarr; unsupervised. &#9314; There are no answers at all, only
+  outcomes that turn out good or bad &rarr; reinforcement.</p>
+
+  <div class="cards three">
+    <div class="card sup">
+      <h4>Supervised</h4>
+      <p>Trained on data where the <strong>answer column is filled in</strong>, so it can
+      fill in the blank for new data.</p>
+      <ul>
+        <li><strong>Classification</strong> &mdash; output is a category (folder)</li>
+        <li><strong>Regression</strong> &mdash; output is a number (scale)</li>
+        <li>Spam detection, house prices</li>
+        <li>Linear &amp; Logistic Regression, Decision Tree, KNN, SVM</li>
+      </ul>
+    </div>
+    <div class="card uns">
+      <h4>Unsupervised</h4>
+      <p>Only inputs, <strong>no answers</strong>. Finds structure entirely on its own.</p>
+      <ul>
+        <li><strong>Clustering</strong> &mdash; group similar data points</li>
+        <li><strong>Association</strong> &mdash; items occurring together</li>
+        <li>Customer segmentation, market basket</li>
+        <li>K-Means, Hierarchical, Apriori</li>
+      </ul>
+    </div>
+    <div class="card rei">
+      <h4>Reinforcement</h4>
+      <p>An <strong>agent</strong> learns by trial and error, chasing reward and avoiding
+      penalty.</p>
+      <ul>
+        <li>Agent &middot; Environment &middot; State &middot; Action &middot; Reward</li>
+        <li>Positive RL / Negative RL</li>
+        <li>AlphaGo, chess, robotics, self-driving</li>
+        <li>Feedback is <em>delayed</em> and evaluative</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Classification vs Regression &mdash; the reliable test</h3>
+  <div class="key">
+    <strong>Does a value &ldquo;in between&rdquo; two answers make sense?</strong><br>
+    Yes &rarr; <strong>Regression</strong>. No &rarr; <strong>Classification</strong>.
+  </div>
+
+  <table>
+    <thead><tr><th>Question</th><th>In-between value</th><th>Type</th></tr></thead>
+    <tbody>
+      <tr><td>&#8377;10 note vs &#8377;20 note</td><td>a &#8377;15 note &mdash; does not exist</td><td>Classification</td></tr>
+      <tr><td>&#8377;50 lakh vs &#8377;75 lakh house</td><td>&#8377;62.5 lakh &mdash; perfectly normal</td><td>Regression</td></tr>
+      <tr><td>Spam vs not-spam</td><td>half-spam &mdash; meaningless</td><td>Classification</td></tr>
+      <tr><td>20mm vs 30mm rainfall</td><td>25.4mm &mdash; fine</td><td>Regression</td></tr>
+    </tbody>
+  </table>
+
+  <div class="trap">
+    <span class="tag">The classic trap</span>
+    <strong>Numeric answers are not automatically regression.</strong> Denominations
+    (&#8377;10/&#8377;20/&#8377;50), bus route numbers and star ratings are
+    <em>categories written as digits</em> &mdash; there is no &#8377;15 note and no bus
+    15.5, so they are <strong>classification</strong>.<br><br>
+    Also: <strong>Logistic Regression is a classification algorithm</strong> despite
+    its name.
+  </div>
+
+  <h3>Reinforcement learning components</h3>
+  <table>
+    <thead><tr><th>Term</th><th>Meaning</th><th>In a self-driving car</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Agent</strong></td><td>The learner / decision-maker</td><td>The car</td></tr>
+      <tr><td><strong>Environment</strong></td><td>The world it acts in</td><td>The road and traffic</td></tr>
+      <tr><td><strong>State</strong></td><td>The current situation</td><td>Speed, lane, nearby vehicles</td></tr>
+      <tr><td><strong>Action</strong></td><td>What it can do</td><td>Steer, brake, accelerate</td></tr>
+      <tr><td><strong>Reward</strong></td><td>Feedback after acting</td><td>+1 staying in lane, &minus;1 collision</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Positive reinforcement</strong> &mdash; a reward is added, so the behaviour
+  is repeated (dog sits &rarr; treat). <strong>Negative reinforcement</strong> &mdash; an
+  unpleasant condition is removed, which also strengthens the behaviour (beeping stops
+  when the seatbelt is fastened).</p>
+
+  <!-- ==================== TOPIC 3 ==================== -->
+  <h2>Topic 3 &mdash; Overfitting &amp; Underfitting</h2>
+
+  <p>Data is split: <strong>training data</strong> (~80%, the practice questions) and
+  <strong>testing data</strong> (~20%, held back &mdash; the real exam). Everything below
+  is about the <strong>gap between the two scores</strong>.</p>
+
+  <div class="key">
+    <strong>Three students.</strong> <strong>A</strong> barely studied &mdash; fails
+    practice and fails the exam &rarr; <strong>underfitting</strong>. <strong>B</strong>
+    memorised the textbook word-for-word &mdash; perfect on practice, fails the rephrased
+    exam &rarr; <strong>overfitting</strong>. <strong>C</strong> actually understood it
+    &mdash; does well on both &rarr; <strong>good fit</strong>.
+  </div>
+
+  <table>
+    <thead><tr><th></th><th>Training accuracy</th><th>Test accuracy</th><th>Also called</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Underfitting</strong></td><td>Low &#10007;</td><td>Low &#10007;</td><td>High bias</td></tr>
+      <tr><td><strong>Good fit</strong></td><td>High &#10003;</td><td>High &#10003;</td><td>bias&ndash;variance tradeoff</td></tr>
+      <tr><td><strong>Overfitting</strong></td><td>High &#10003;</td><td>Low &#10007;</td><td>High variance</td></tr>
+    </tbody>
+  </table>
+
+  <div class="key">
+    <strong>Memory hook.</strong> <em>Over</em> = fits the training data <em>too much</em>
+    &rarr; too good on training, bad on test. <em>Under</em> = fits it <em>too little</em>
+    &rarr; bad at everything.
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <h4>Underfitting</h4>
+      <p><strong>Definition:</strong> the model is too simple to capture the pattern in
+      the data. (<strong>High bias</strong>)</p>
+      <p><strong>Causes:</strong></p>
+      <ul>
+        <li>Model too simple for the data</li>
+        <li>Too few features</li>
+        <li>Insufficient training</li>
+        <li>Excessive regularisation</li>
+      </ul>
+      <p style="margin-top:.5rem"><strong>Fixes:</strong></p>
+      <ul>
+        <li>Use a more complex model</li>
+        <li>Add more / better features</li>
+        <li>Train for longer</li>
+        <li>Reduce regularisation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Overfitting</h4>
+      <p><strong>Definition:</strong> the model memorises the training data including its
+      noise, instead of learning the general pattern. (<strong>High variance</strong>)</p>
+      <p><strong>Causes:</strong></p>
+      <ul>
+        <li>Model too complex</li>
+        <li>Too little training data</li>
+        <li>Trained for too long</li>
+        <li>Noisy or irrelevant features</li>
+      </ul>
+      <p style="margin-top:.5rem"><strong>Fixes:</strong></p>
+      <ul>
+        <li>More training data <em>(best fix)</em></li>
+        <li>Feature selection</li>
+        <li>Regularisation (L1 / L2)</li>
+        <li>Cross-validation, early stopping</li>
+        <li>Pruning (trees), Dropout (neural nets)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap">
+    <span class="tag">Subtle but examinable</span>
+    <strong>&ldquo;More data&rdquo; fixes overfitting, never underfitting.</strong> More
+    data makes memorisation impossible, forcing the model to find the real pattern. But a
+    straight line fitted to curved data stays a straight line no matter how many points
+    you give it &mdash; underfitting is a <em>model capacity</em> problem, not a data
+    problem.
+  </div>
+
+  <h2>Exam tactics</h2>
+  <ul class="plain">
+    <li>If the question says <strong>&ldquo;difference between&rdquo;</strong> &mdash;
+    <strong>draw a table</strong>. Faster to write than prose, and examiners reward it.</li>
+    <li>Give a <strong>definition first</strong>, then points, then <strong>one concrete
+    example</strong> per concept.</li>
+    <li>Never write &ldquo;etc.&rdquo; Never write filler such as &ldquo;in today&rsquo;s
+    world this is very important.&rdquo; Neither earns a mark and both cost seconds.</li>
+    <li>Naming <strong>Arthur Samuel (1959)</strong> is a free mark. So is naming two
+    algorithms per type.</li>
+    <li>30 minutes, 3 questions &rarr; roughly <strong>8 minutes each</strong>, 6 minutes
+    spare for checking.</li>
+  </ul>
+
+  <p class="footnote">
+    Built during the session of 25 Sep 2026 &middot; Learning Spot workspace.<br>
+    Primary source for going deeper:
+    <a href="https://developers.google.com/machine-learning/crash-course">Google&rsquo;s Machine Learning Crash Course</a>
+    &mdash; the &ldquo;Framing&rdquo; and &ldquo;Generalization&rdquo; units cover Topics
+    1 and 3 directly.<br>
+    <strong>Anything here unclear? Ask your teacher &mdash; that&rsquo;s me. Just ask in
+    the chat.</strong>
+  </p>
+
+</div>
+</body>
+</html>
